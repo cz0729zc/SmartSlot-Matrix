@@ -665,6 +665,26 @@
               <FileType>5</FileType>
               <FilePath>.\Hardware\RC522.h</FilePath>
             </File>
+            <File>
+              <FileName>ds1302.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\ds1302.c</FilePath>
+            </File>
+            <File>
+              <FileName>ds1302.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\ds1302.h</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\Motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\Motor.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

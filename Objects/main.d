@@ -37,3 +37,6 @@
 .\objects\main.o: .\Hardware\RC522.h
 .\objects\main.o: .\Hardware\OLED.h
 .\objects\main.o: .\Hardware\beep.h
+.\objects\main.o: .\Hardware\ds1302.h
+.\objects\main.o: .\System\sys\sys.h
+.\objects\main.o: .\Hardware\motor.h

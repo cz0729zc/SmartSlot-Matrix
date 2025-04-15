@@ -42,6 +42,8 @@
 ".\objects\oled.o"
 ".\objects\ir_sensor.o"
 ".\objects\rc522.o"
+".\objects\ds1302.o"
+".\objects\motor.o"
 ".\objects\main.o"
 ".\objects\stm32f10x_it.o"
 --strict --scatter ".\Objects\SmartSlot-Matrix.sct"
