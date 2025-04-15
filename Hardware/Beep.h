@@ -4,8 +4,8 @@
 #include "stm32f10x.h"
 
 // ·äÃùÆ÷Òý½Å¶¨Òå
-#define BEEP_PIN GPIO_Pin_8
-#define BEEP_GPIO GPIOA
+#define BEEP_PIN GPIO_Pin_15
+#define BEEP_GPIO GPIOB
 
 void BEEP_Init(void);
 

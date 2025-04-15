@@ -1,0 +1,13 @@
+*** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\Development_Tool\Keil5\ARM\ARMCC\Bin'
+Build target 'Target 1'
+compiling Beep.c...
+compiling main.c...
+User\main.c(30): warning:  #223-D: function "delay_ms" declared implicitly
+              delay_ms(1000);
+User\main.c(53): warning:  #1-D: last line of file ends without a newline
+  }
+User\main.c(53): error: At end of source:  #67: expected a "}"
+User\main.c: 2 warnings, 1 error
+".\Objects\SmartSlot-Matrix.axf" - 1 Error(s), 2 Warning(s).
+Target not created.
+Build Time Elapsed:  00:00:01

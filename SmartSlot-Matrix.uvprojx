@@ -655,6 +655,16 @@
               <FileType>5</FileType>
               <FilePath>.\Hardware\ir_sensor.h</FilePath>
             </File>
+            <File>
+              <FileName>RC522.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\RC522.c</FilePath>
+            </File>
+            <File>
+              <FileName>RC522.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\RC522.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

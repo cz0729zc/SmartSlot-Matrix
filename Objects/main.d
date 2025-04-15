@@ -28,4 +28,12 @@
 .\objects\main.o: .\Library\stm32f10x_usart.h
 .\objects\main.o: .\Library\stm32f10x_wwdg.h
 .\objects\main.o: .\Library\misc.h
+.\objects\main.o: .\System\delay\delay.h
+.\objects\main.o: .\System\usart\usart1.h
+.\objects\main.o: D:\Development_Tool\Keil5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\main.o: D:\Development_Tool\Keil5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\main.o: D:\Development_Tool\Keil5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\main.o: .\Hardware\ir_sensor.h
+.\objects\main.o: .\Hardware\RC522.h
+.\objects\main.o: .\Hardware\OLED.h
+.\objects\main.o: .\Hardware\beep.h

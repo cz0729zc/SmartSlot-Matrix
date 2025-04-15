@@ -1,6 +1,5 @@
 #include "stm32f10x.h"
 #include "usart1.h"
-#include "usart3.h"
 
 #if USART1_RX_ENABLE
 char Usart1_RxCompleted = 0;
@@ -79,7 +78,6 @@ void u1_TxData(unsigned char *data, uint16_t length) {
     for(uint16_t i = 0; i < length; i++) {
         while((USART1->SR & 0X40) == 0); // µÈ´ý·¢ËÍ¼Ä´æÆ÷¿Õ
         USART1->DR = data[i];
-		u3_printf("data[]=%x\r\n",data[i]);
     }
 	
 }

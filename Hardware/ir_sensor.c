@@ -6,10 +6,10 @@ static const struct {
     GPIO_TypeDef* GPIOx;
     uint16_t GPIO_Pin;
 } IR_Map[IR_SENSOR_COUNT] = {
-    {GPIOB, GPIO_Pin_12}, // IR11
-    {GPIOB, GPIO_Pin_13}, // IR12
-    {GPIOB, GPIO_Pin_14}, // IR21
-    {GPIOB, GPIO_Pin_15}  // IR22
+    {GPIOA, GPIO_Pin_4}, // IR11
+    {GPIOA, GPIO_Pin_5}, // IR12
+    {GPIOA, GPIO_Pin_6}, // IR21
+    {GPIOA, GPIO_Pin_7}  // IR22
 };
 
 /**
@@ -20,7 +20,7 @@ void IR_Init(void)
     GPIO_InitTypeDef GPIO_InitStruct = {0};
     
     // 使能GPIOB时钟
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
     
     // 配置为上拉输入模式
     GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IPU;
