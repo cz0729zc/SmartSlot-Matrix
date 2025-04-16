@@ -17,16 +17,19 @@
 /*-------------------------------------------------*/
 void IIC_Init(void)
 {			
-	GPIO_InitTypeDef  GPIO_InitStructure;                      //定义一个设置IO的变量
+    GPIO_InitTypeDef GPIO_InitStructure;
 
-	RCC_APB2PeriphClockCmd(	RCC_APB2Periph_GPIOB, ENABLE );    //使能GPIOB时钟
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7 ;    //准备设置PB6 PB7
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;           //推免输出方式  
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;          //IO速率50M
-	GPIO_Init(GPIOB, &GPIO_InitStructure);                     //设置PB6 PB7
-	
-	IIC_SCL_H;   //SCL拉高
-	IIC_SDA_H;   //SDA拉高
+    // 使能GPIOA时钟
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
+    
+    // 配置PA11(SCL)和PA12(SDA)
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11 | GPIO_Pin_12;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;  // 推挽输出
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+    
+    IIC_SCL_H;   // SCL拉高
+    IIC_SDA_H;   // SDA拉高
 }
 /*-------------------------------------------------*/
 /*函数名：IIC起始信号                              */

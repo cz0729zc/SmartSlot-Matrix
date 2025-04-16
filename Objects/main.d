@@ -42,3 +42,4 @@
 .\objects\main.o: .\Hardware\motor.h
 .\objects\main.o: .\Hardware\24c02.h
 .\objects\main.o: .\Hardware\keys.h
+.\objects\main.o: .\Hardware\iic.h
