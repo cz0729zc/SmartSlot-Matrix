@@ -27,23 +27,33 @@ Project File Date:  04/15/2025
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\Development_Tool\Keil5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-compiling ds1302.c...
-Hardware\ds1302.h(24): warning:  #1295-D: Deprecated declaration ds1302_gpio_init - give arg types
+compiling main.c...
+.\Hardware\ds1302.h(24): warning:  #1295-D: Deprecated declaration ds1302_gpio_init - give arg types
   void ds1302_gpio_init();//ds1302端口初始化
-Hardware\ds1302.h(28): warning:  #1295-D: Deprecated declaration ds1032_init - give arg types
+.\Hardware\ds1302.h(28): warning:  #1295-D: Deprecated declaration ds1032_init - give arg types
   void ds1032_init();//ds1302初始化函数
-Hardware\ds1302.h(29): warning:  #1295-D: Deprecated declaration ds1032_DATAOUT_init - give arg types
+.\Hardware\ds1302.h(29): warning:  #1295-D: Deprecated declaration ds1032_DATAOUT_init - give arg types
   void ds1032_DATAOUT_init();//IO端口配置为输出
-Hardware\ds1302.h(30): warning:  #1295-D: Deprecated declaration ds1032_DATAINPUT_init - give arg types
+.\Hardware\ds1302.h(30): warning:  #1295-D: Deprecated declaration ds1032_DATAINPUT_init - give arg types
   void ds1032_DATAINPUT_init();//IO端口配置为输入
-Hardware\ds1302.h(31): warning:  #1295-D: Deprecated declaration ds1032_read_time - give arg types
+.\Hardware\ds1302.h(31): warning:  #1295-D: Deprecated declaration ds1032_read_time - give arg types
   void ds1032_read_time();//从ds1302读取实时时间（BCD码）
-Hardware\ds1302.h(32): warning:  #1295-D: Deprecated declaration ds1032_read_realTime - give arg types
+.\Hardware\ds1302.h(32): warning:  #1295-D: Deprecated declaration ds1032_read_realTime - give arg types
   void ds1032_read_realTime();//将BCD码转化为十进制数据
-Hardware\ds1302.c: 6 warnings, 0 errors
+.\Hardware\motor.h(32): warning:  #1-D: last line of file ends without a newline
+  #endif
+User\main.c(179): warning:  #188-D: enumerated type mixed with another type
+          OLED_ShowString(1,7,IR_CheckObstacle(0) ? "Occupied" : "Free");
+User\main.c(182): warning:  #188-D: enumerated type mixed with another type
+          OLED_ShowString(2,7,IR_CheckObstacle(1) ? "Occupied" : "Free");
+User\main.c(185): warning:  #188-D: enumerated type mixed with another type
+          OLED_ShowString(3,7,IR_CheckObstacle(2) ? "Occupied" : "Free");
+User\main.c(188): warning:  #188-D: enumerated type mixed with another type
+          OLED_ShowString(4,7,IR_CheckObstacle(3) ? "Occupied" : "Free");
+User\main.c: 11 warnings, 0 errors
 linking...
-Program Size: Code=7232 RO-data=1892 RW-data=60 ZI-data=1932  
-".\Objects\SmartSlot-Matrix.axf" - 0 Error(s), 6 Warning(s).
+Program Size: Code=8468 RO-data=1904 RW-data=84 ZI-data=1932  
+".\Objects\SmartSlot-Matrix.axf" - 0 Error(s), 11 Warning(s).
 
 <h2>Software Packages used:</h2>
 

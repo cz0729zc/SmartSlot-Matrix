@@ -4,29 +4,46 @@
 void Key_Init(void) {
     GPIO_InitTypeDef GPIO_InitStruct;
     
-    RCC_APB2PeriphClockCmd(KEY_GPIO_CLK, ENABLE);
+    // ≥ı ºªØPB13∫ÕPB14
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
     
-    GPIO_InitStruct.GPIO_Pin = KEY_PIN;
+    GPIO_InitStruct.GPIO_Pin = KEY1_PIN | KEY2_PIN;
     GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IPU;
     GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(KEY_GPIO_PORT, &GPIO_InitStruct);
+    GPIO_Init(GPIOB, &GPIO_InitStruct);
 }
 
 Key_Value Key_Scan(void) {
-    static u8 key_lock = 0;
+    static u8 key1_lock = 0, key2_lock = 0;
+    Key_Value result = KEY_NONE;
     
-    if(GPIO_ReadInputDataBit(KEY_GPIO_PORT, KEY_PIN) == RESET) {
-        if(!key_lock) {
+    // ºÏ≤‚PB13
+    if(GPIO_ReadInputDataBit(KEY1_GPIO_PORT, KEY1_PIN) == RESET) {
+        if(!key1_lock) {
             delay_ms(15);
-            if(GPIO_ReadInputDataBit(KEY_GPIO_PORT, KEY_PIN) == RESET) {
-                return KEY_PRESSED;
+            if(GPIO_ReadInputDataBit(KEY1_GPIO_PORT, KEY1_PIN) == RESET) {
+                result = KEY1_PRESSED;
             }
-            key_lock = 1;
+            key1_lock = 1;
         }
     }
     else {
-        key_lock = 0;
+        key1_lock = 0;
     }
-    return KEY_NONE;
+    
+    // ºÏ≤‚PB14
+    if(GPIO_ReadInputDataBit(KEY2_GPIO_PORT, KEY2_PIN) == RESET) {
+        if(!key2_lock) {
+            delay_ms(15);
+            if(GPIO_ReadInputDataBit(KEY2_GPIO_PORT, KEY2_PIN) == RESET) {
+                result = KEY2_PRESSED;
+            }
+            key2_lock = 1;
+        }
+    }
+    else {
+        key2_lock = 0;
+    }
+    
+    return result;
 }
-
