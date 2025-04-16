@@ -17,7 +17,7 @@ extern char Usart1_RxBuff[USART1_RXBUFF_SIZE]; // Ω” ’ª∫≥Â«¯
 
 void Usart1_Init(unsigned int bound);
 void u1_printf(char* fmt, ...);
-void u1_TxData(unsigned char *data, uint16_t length);
+void u1_TxData(const uint8_t *data, uint16_t length);
 
 #endif
 

@@ -73,7 +73,7 @@ void u1_printf(char* fmt, ...)
 }
 
 // 原始数据发送
-void u1_TxData(unsigned char *data, uint16_t length) {
+void u1_TxData(const uint8_t *data, uint16_t length) {
 	//USART_SendData(USART1,*data);
     for(uint16_t i = 0; i < length; i++) {
         while((USART1->SR & 0X40) == 0); // 等待发送寄存器空

@@ -12,18 +12,18 @@ $ @ Describe     :
 
 // 修改相位数组为对应PA0-PA3的位掩码
 uint16_t phasecw[4] = {
-    (0x0001 << 3),  // PA3 (D) 
-    (0x0001 << 2),  // PA2 (C)
-    (0x0001 << 1),  // PA1 (B)
-    (0x0001 << 0)   // PA0 (A)
-}; // 反转 D-C-B-A
+    (1u << 0),  // 只操作PA0
+    (1u << 1),  // 只操作PA1
+    (1u << 2),  // 只操作PA2
+    (1u << 3)   // 只操作PA3
+}; // 正转 D-C-B-A
 
 uint16_t phaseccw[4] = {
-    (0x0001 << 0),  // PA0 (A)
-    (0x0001 << 1),  // PA1 (B)
-    (0x0001 << 2),  // PA2 (C)
-    (0x0001 << 3)   // PA3 (D)
-}; // 正转 A-B-C-D
+    (1u << 3),  // 只操作PA3
+    (1u << 2),  // 只操作PA2
+    (1u << 1),  // 只操作PA1
+    (1u << 0)   // 只操作PA0
+}; // 反转 A-B-C-D
 
 /*---------------------------------电机模块与单片机连接引脚---------------------------------------------------*/
 /* IN4: PB9  d */
@@ -42,7 +42,9 @@ void Moto_Init(void)
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(GPIOA, &GPIO_InitStructure);
 	
-	GPIO_ResetBits(GPIOA, GPIO_Pin_0 | GPIO_Pin_1 |GPIO_Pin_2 |GPIO_Pin_3 );
+	// 安全写法：使用位带操作确保只复位目标引脚
+    GPIOA->ODR &= ~(GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3);
+	//GPIO_ResetBits(GPIOA, GPIO_Pin_0 | GPIO_Pin_1 |GPIO_Pin_2 |GPIO_Pin_3 );
 //	 GPIO_InitTypeDef GPIO_InitStructure;
 //	 RCC_APB2PeriphClockCmd(MOTOR_CLK,ENABLE);
 //	
@@ -57,28 +59,26 @@ void Moto_Init(void)
 // 正转
 void Motor_Forward_Ration(void)  
 {  
-    int i;  
-    for(i=0;i<4;i++)  
+    for(int i=0; i<4; i++)  
     {  
-        GPIO_Write(MOTOR_PORT, phaseccw[i]);  
-        delay_ms(1);  
-		//u1_printf("phaseccw[%d]:%02X\r\n",i,phaseccw[i]);
-    }   
+        // 先清除目标引脚状态，再设置新状态
+        GPIOA->ODR = (GPIOA->ODR & ~(GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3)) | phaseccw[i];
+        delay_ms(5);  
+    }    
 }
 // 反转
 void Motor_Reverse_Rotation(void)  
 {  
-	uint8_t i;  
-    for(i=0;i<4;i++)  
+    for(int i=0; i<4; i++)  
     {  
-        GPIO_Write(MOTOR_PORT, phasecw[i]);  
-        delay_ms(1);  
-    }  
+        GPIOA->ODR = (GPIOA->ODR & ~(GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3)) | phasecw[i];
+        delay_ms(5);  
+    }
 }
 //停止
 void MotorStop(void) 
 {  
-    GPIO_Write(MOTOR_PORT, 0x0000);
+    GPIOA->ODR &= ~(GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3);
 	//u1_printf("**************停止*****************\r\n");
 }
 
@@ -87,27 +87,14 @@ void MotorStop(void)
 //angle角度，可为0-360具有实际意义
 void Motor_Ctrl_Direction_Angle(int direction, int angle)
 {
-	uint16_t i;
-
-	if(direction == 1)
-	{								
-		for(i = 0; i < 64*angle/45; i++) 
-		{
-			/* 正转 */
-			Motor_Forward_Ration();
-			
-		}
-		MotorStop();//停止
-  	}
-	else
-	{
-		for(i = 0; i < 64*angle/45; i++) 
-		{
-			/* 反转 */
-			Motor_Reverse_Rotation(); 
-		}
-		 MotorStop();//停止
-	}
+    uint16_t steps = 64 * angle / 45;
+    
+    if(direction == 1) {
+        while(steps--) Motor_Forward_Ration();
+    } else {
+        while(steps--) Motor_Reverse_Rotation();
+    }
+    MotorStop();
 }
 
 
