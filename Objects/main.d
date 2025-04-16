@@ -40,3 +40,5 @@
 .\objects\main.o: .\Hardware\ds1302.h
 .\objects\main.o: .\System\sys\sys.h
 .\objects\main.o: .\Hardware\motor.h
+.\objects\main.o: .\Hardware\24c02.h
+.\objects\main.o: .\Hardware\keys.h
