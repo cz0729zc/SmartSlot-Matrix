@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: μVision V5.24.2.0
 Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: a admin, a, LIC=585FJ-UT31C-12ALE-5271E-TT55M-FU394
+License Information: 11 11, 11, LIC=585FJ-UT31C-12ALE-5271E-TT55M-FU394
  
 Tool Versions:
 Toolchain:       MDK-ARM Plus  Version: 5.24.1
@@ -27,6 +27,12 @@ Project File Date:  04/15/2025
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\Development_Tool\Keil5\ARM\ARMCC\Bin'
 Build target 'Target 1'
+compiling Motor.c...
+Hardware\motor.h(33): warning:  #1-D: last line of file ends without a newline
+  #endif
+Hardware\Motor.c(154): warning:  #1-D: last line of file ends without a newline
+                                                      
+Hardware\Motor.c: 2 warnings, 0 errors
 compiling main.c...
 .\Hardware\ds1302.h(24): warning:  #1295-D: Deprecated declaration ds1302_gpio_init - give arg types
   void ds1302_gpio_init();//ds1302端口初始化
@@ -40,7 +46,7 @@ compiling main.c...
   void ds1032_read_time();//从ds1302读取实时时间（BCD码）
 .\Hardware\ds1302.h(32): warning:  #1295-D: Deprecated declaration ds1032_read_realTime - give arg types
   void ds1032_read_realTime();//将BCD码转化为十进制数据
-.\Hardware\motor.h(32): warning:  #1-D: last line of file ends without a newline
+.\Hardware\motor.h(33): warning:  #1-D: last line of file ends without a newline
   #endif
 .\Hardware\iic.h(31): warning:  #1-D: last line of file ends without a newline
   #endif
@@ -54,8 +60,8 @@ User\main.c(359): warning:  #188-D: enumerated type mixed with another type
           OLED_ShowString(4,7,IR_CheckObstacle(3) ? "Occupied" : "Free");
 User\main.c: 12 warnings, 0 errors
 linking...
-Program Size: Code=9632 RO-data=1904 RW-data=84 ZI-data=1932  
-".\Objects\SmartSlot-Matrix.axf" - 0 Error(s), 12 Warning(s).
+Program Size: Code=9864 RO-data=1904 RW-data=84 ZI-data=1932  
+".\Objects\SmartSlot-Matrix.axf" - 0 Error(s), 14 Warning(s).
 
 <h2>Software Packages used:</h2>
 

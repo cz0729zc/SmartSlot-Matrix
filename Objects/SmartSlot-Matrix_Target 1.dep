@@ -1297,8 +1297,8 @@ I (.\Library\stm32f10x_wwdg.h)(0x67E3BF02)
 I (.\Library\misc.h)(0x67E3BF02)
 I (.\System\delay\delay.h)(0x67F24698)
 F (.\Hardware\ds1302.h)(0x67FDE1D3)()
-F (.\Hardware\Motor.c)(0x67FF7C05)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\User -I .\System\delay -I .\System\sys -I .\System\timer -I .\System\usart -I .\Start -I .\Library -I .\Hardware -I .\System\RTC-I.\RTE\_Target_1-ID:\Development_Tool\Keil5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\Development_Tool\Keil5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\motor.o --omf_browse .\objects\motor.crf --depend .\objects\motor.d)
-I (Hardware\motor.h)(0x67FF5DD7)
+F (.\Hardware\Motor.c)(0x68034729)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\User -I .\System\delay -I .\System\sys -I .\System\timer -I .\System\usart -I .\Start -I .\Library -I .\Hardware -I .\System\RTC-I.\RTE\_Target_1-ID:\Development_Tool\Keil5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\Development_Tool\Keil5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\motor.o --omf_browse .\objects\motor.crf --depend .\objects\motor.d)
+I (Hardware\motor.h)(0x6803472F)
 I (D:\Development_Tool\Keil5\ARM\ARMCC\include\stdio.h)(0x588B8344)
 I (D:\Development_Tool\Keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
 I (D:\Development_Tool\Keil5\ARM\ARMCC\include\string.h)(0x588B8344)
@@ -1332,7 +1332,7 @@ I (.\Library\stm32f10x_wwdg.h)(0x67E3BF02)
 I (.\Library\misc.h)(0x67E3BF02)
 I (.\System\usart\usart1.h)(0x67FF0AEF)
 I (D:\Development_Tool\Keil5\ARM\ARMCC\include\stdarg.h)(0x588B8344)
-F (.\Hardware\Motor.h)(0x67FF5DD7)()
+F (.\Hardware\Motor.h)(0x6803472F)()
 F (.\User\main.c)(0x67FF862D)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\User -I .\System\delay -I .\System\sys -I .\System\timer -I .\System\usart -I .\Start -I .\Library -I .\Hardware -I .\System\RTC-I.\RTE\_Target_1-ID:\Development_Tool\Keil5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\Development_Tool\Keil5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (.\Start\stm32f10x.h)(0x67E3BF02)
 I (.\Start\core_cm3.h)(0x67E3BF02)
@@ -1373,7 +1373,7 @@ I (.\Hardware\OLED.h)(0x616ED05A)
 I (.\Hardware\beep.h)(0x67FDBEA3)
 I (.\Hardware\ds1302.h)(0x67FDE1D3)
 I (.\System\sys\sys.h)(0x67E3BF02)
-I (.\Hardware\motor.h)(0x67FF5DD7)
+I (.\Hardware\motor.h)(0x6803472F)
 I (.\Hardware\24c02.h)(0x67F237BB)
 I (.\Hardware\keys.h)(0x67FF6785)
 I (.\Hardware\iic.h)(0x67FF78C0)

@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <string.h>
 
-// 第一个电机定义
+// 第一个电机定义 - 保持不变
 #define MOTOR1_CLK               RCC_APB2Periph_GPIOA
 #define MOTOR1_PORT              GPIOA
 #define MOTOR1_IN1_PIN           GPIO_Pin_0
@@ -12,14 +12,15 @@
 #define MOTOR1_IN3_PIN           GPIO_Pin_2
 #define MOTOR1_IN4_PIN           GPIO_Pin_3
 
-// 第二个电机定义
-#define MOTOR2_CLK               (RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOA)
+// 第二个电机定义 - 修改PA8为PC14
+#define MOTOR2_CLK               (RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOB | RCC_APB2Periph_GPIOA)
 #define MOTOR2_PORTC             GPIOC
+#define MOTOR2_PORTB             GPIOB
 #define MOTOR2_PORTA             GPIOA
 #define MOTOR2_IN1_PIN           GPIO_Pin_13  // PC13
-#define MOTOR2_IN2_PIN           GPIO_Pin_14  // PC14
-#define MOTOR2_IN3_PIN           GPIO_Pin_15  // PC15
-#define MOTOR2_IN4_PIN           GPIO_Pin_8   // PA8
+#define MOTOR2_IN2_PIN           GPIO_Pin_7   // PB7
+#define MOTOR2_IN3_PIN           GPIO_Pin_15  // PA15
+#define MOTOR2_IN4_PIN           GPIO_Pin_14  // PC14 (原PA8)
 
 void Moto_Init(void);
 void Motor1_Forward_Ration(void);  // 电机1正转
